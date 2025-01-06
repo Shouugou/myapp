@@ -1,0 +1,61 @@
+div {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.link-container h2 {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.link-container {
+    display: flex;
+    /* 使用flex布局确保链接在同一行 */
+    flex-wrap: wrap;
+    /* 允许内容换行 */
+    margin-bottom: 20px;
+    /* 为了让内容和链接有间隔 */
+    background: #000000;
+    /* justify-content: space-between; 水平方向均匀分布 */
+}
+
+.link-container input {
+    border: none;
+    outline: none;
+    height: 30px;
+    margin: auto;
+    background: #4c494922;
+    color:#fff;
+    border-radius: 10px;
+}
+
+.link-container button{
+    height: 30px;
+    margin: auto;
+}
+
+.link-container input:placeholder-shown{
+    background:url(../img/搜索.png) no-repeat 5% center, #4c494922;
+}
+
+.link-container input::placeholder{
+    text-align: center;
+}
+
+.active {
+    font-size: 35px;
+    color: aqua;
+    text-decoration: none;
+}
+
+div h2 a {
+    color: #fff;
+}
+
+.content-container {
+    width: 100%;
+    /* 确保内容独占一行 */
+    clear: both;
+}
