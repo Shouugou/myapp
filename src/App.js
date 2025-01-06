@@ -1,25 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function App() {
 
-  const news = ["1", "2", "3", "4", "5"];
+  const [comment, setComment] = useState(["你好", "再见", "再也不见"]);
+  const [input, setInput] = useState("");
 
-  const listRef = React.useRef(null);
+  const buttononClick = () => {
+    const newComment = [...comment, input];
+    setComment(newComment);
+    setInput("");
+  }
 
-  const moreNews = () => {
-    const currentLength = listRef.current.children.length;
-    const newLi = document.createElement("li");
-    newLi.textContent = news[currentLength];
-    listRef.current.appendChild(newLi);
+  const buttonDelete = (index) => {
+    const newComment = [...comment];
+    newComment.splice(index, 1);
+    setComment(newComment);
   }
 
   return (
     <div>
-      <h1>新闻列表</h1>
-      <ul ref={listRef}>
-        <li>{news[0]}</li>
+      <h1>评论功能</h1>
+      <input type='text' value={input} onChange={(e) => setInput(e.target.value)} />
+      <button onClick={buttononClick}>提交</button>
+      <h2>评论列表</h2>
+      <ul>
+        {
+          comment.map((value, index) => (
+            <li key={index}>{value}<button onClick={() => buttonDelete(index)}>删除</button></li>
+          ))
+        }
       </ul>
-      <button onClick={moreNews}>更多</button>
     </div>
   )
 }
